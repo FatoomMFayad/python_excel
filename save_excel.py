@@ -19,10 +19,8 @@ employees = [e1, e2, e3, e4]
 
 wb = xl.Workbook()
 ws = wb.active
-ws['A1'] = 'ID'
-ws['B1'] = 'Name'
-ws['C1'] = 'Job Title'
-ws['D1'] = 'Salary'
+ws.append(('ID','Name','Job Title','Salary'))
+
 for employee in employees:
     ws.append((employee.id, employee.name, employee.job_title, employee.salary))
 
