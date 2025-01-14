@@ -1,5 +1,14 @@
 import openpyxl as xl
 
+class Country:
+    name = ''
+    imports = 0
+    exports = 0
+    capital = ''
+
+
+countries = []
+
 file_name = 'C:/Users/Fatoom/Documents/countries.xlsx'
 try:
     wb = xl.load_workbook(file_name)
@@ -8,8 +17,16 @@ try:
     # print(sheet.cell(row=1, column=1).value)
     # print(sheet['A2'].value)
 
-    for row in sheet.iter_rows(values_only=True):
-        print(row)
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        c = Country()
+        c.name = row[0]
+        c.imports = row[1]
+        c.exports = row[2]
+        c.capital = row[3]
+        countries.append(c)
+
+    for i in countries:
+        print(i.name, i.imports, i.exports, i.capital)
 
 except FileNotFoundError as e:
     print(e)
