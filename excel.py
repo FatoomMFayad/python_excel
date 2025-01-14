@@ -33,6 +33,12 @@ try:
 
     sheet['B5'] = total_imports
     sheet['C5'] = total_exports
+    results_sheet = wb.create_sheet('results')
+    results_sheet['A1'] = 'total imports'
+    results_sheet['A2'] = total_imports
+    results_sheet['B1'] = 'total exports'
+    results_sheet['B2'] = total_exports
     wb.save(file_name)
+
 except FileNotFoundError as e:
     print(e)
