@@ -17,7 +17,7 @@ try:
     # print(sheet.cell(row=1, column=1).value)
     # print(sheet['A2'].value)
 
-    for row in sheet.iter_rows(min_row=2, values_only=True):
+    for row in sheet.iter_rows(min_row=2, max_row=4, values_only=True):
         c = Country()
         c.name = row[0]
         c.imports = row[1]
