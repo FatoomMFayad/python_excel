@@ -28,5 +28,11 @@ try:
     for i in countries:
         print(i.name, i.imports, i.exports, i.capital)
 
+    total_imports = sum(i.imports for i in countries)
+    total_exports = sum(i.exports for i in countries)
+
+    sheet['B5'] = total_imports
+    sheet['C5'] = total_exports
+    wb.save(file_name)
 except FileNotFoundError as e:
     print(e)
