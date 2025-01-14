@@ -6,7 +6,7 @@ try:
     sheet = wb.active
 
     print(sheet.cell(row=1, column=1).value)
-    
+    print(sheet['A2'].value)
 
 except FileNotFoundError as e:
     print(e)
